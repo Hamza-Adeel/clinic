@@ -1,26 +1,123 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --clinic-navy-dark: #07182c;
+    --clinic-navy: #0a2540;
+    --clinic-navy-light: #133863;
+    --clinic-teal: #0d9488;
+    --clinic-teal-light: #14b8a6;
+    --clinic-teal-subtle: #f0fdfa;
+    --clinic-blue: #0284c7;
+    --clinic-blue-light: #38bdf8;
+    --clinic-green: #10b981;
+    --clinic-green-subtle: #ecfdf5;
+    --clinic-amber: #f59e0b;
+    --clinic-slate: #f8fafc;
+    --clinic-border: #e2e8f0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: #fcfdfe;
+    color: #1e293b;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Healthcare Glow and Glassmorphism */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.glass-dark {
+  background: rgba(10, 37, 64, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.medical-gradient-hero {
+  background: radial-gradient(circle at 85% 20%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 15% 70%, rgba(13, 148, 136, 0.07) 0%, transparent 45%),
+              linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f0fdfa 100%);
+}
+
+.medical-gradient-dark {
+  background: radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.15) 0%, transparent 60%),
+              radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.12) 0%, transparent 60%),
+              linear-gradient(145deg, #07182c 0%, #0a2540 60%, #0d3154 100%);
+}
+
+.medical-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.medical-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -10px rgba(10, 37, 64, 0.08), 0 10px 15px -5px rgba(13, 148, 136, 0.04);
+  border-color: #99f6e4;
+}
+
+/* Subtle Spine Animation */
+@keyframes spine-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+.animate-spine-pulse {
+  animation: spine-pulse 3.5s ease-in-out infinite;
+}
+
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-gentle-float {
+  animation: gentle-float 5s ease-in-out infinite;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
