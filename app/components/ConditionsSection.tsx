@@ -5,10 +5,10 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 interface ConditionsSectionProps {
-  onOpenBooking: () => void;
+  onOpenBooking?: () => void;
 }
 
-export const ConditionsSection: React.FC<ConditionsSectionProps> = ({ onOpenBooking }) => {
+export const ConditionsSection: React.FC<ConditionsSectionProps> = () => {
   const conditions = [
     {
       name: "Back Pain",
@@ -114,13 +114,15 @@ export const ConditionsSection: React.FC<ConditionsSectionProps> = ({ onOpenBook
 
               <div className="p-4 pt-0">
                 <div className="pt-3 border-t border-slate-100">
-                  <button
-                    onClick={onOpenBooking}
+                  <a
+                    href={`https://wa.me/923183130220?text=Hello%20Dr%20Shahvez%20Iqbal%2C%20I%20would%20like%20to%20inquire%20about%20treatment%20for%20${encodeURIComponent(item.name)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-xs font-semibold text-teal-800 hover:text-teal-950 inline-flex items-center gap-1.5 transition-colors"
                   >
-                    <span>Discuss with clinic</span>
+                    <span>Discuss on WhatsApp</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

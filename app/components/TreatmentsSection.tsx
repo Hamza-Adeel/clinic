@@ -5,10 +5,10 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 interface TreatmentsSectionProps {
-  onOpenBooking: () => void;
+  onOpenBooking?: () => void;
 }
 
-export const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({ onOpenBooking }) => {
+export const TreatmentsSection: React.FC<TreatmentsSectionProps> = () => {
   const treatments = [
     {
       title: "Chiropractic Care",
@@ -77,14 +77,16 @@ export const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({ onOpenBook
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-slate-100">
-                  <button
-                    onClick={onOpenBooking}
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                  <a
+                    href={`https://wa.me/923183130220?text=Hello%20Dr%20Shahvez%20Iqbal%2C%20I%20would%20like%20to%20inquire%20about%20${encodeURIComponent(item.title)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-teal-800 hover:text-teal-950 transition-colors"
                   >
-                    <span>Book Appointment</span>
+                    <span>Consult on WhatsApp</span>
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

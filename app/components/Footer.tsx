@@ -63,19 +63,31 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenDisclaimer 
           {/* Contact Details */}
           <div className="md:col-span-3 space-y-2 text-sm">
             <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
-              Contact
+              Contact & Booking
             </div>
             <div className="flex items-start gap-2 text-slate-300">
               <MapPin className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" />
               <span>New Care Medical Center 5C4</span>
             </div>
-            <div className="flex items-start gap-2 text-slate-300">
-              <Phone className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" />
-              <div>
-                <a href="tel:03183130220" className="hover:text-teal-300 block">
+            
+            <div className="space-y-1.5 pt-1">
+              <div className="flex items-center gap-2 text-slate-300">
+                <span className="text-xs text-emerald-400 font-semibold">WhatsApp:</span>
+                <a
+                  href="https://wa.me/923183130220"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-300 transition-colors font-medium text-white"
+                >
                   03183130220
                 </a>
-                <a href="tel:03142779877" className="hover:text-teal-300 block text-xs text-slate-400 mt-0.5">
+              </div>
+              <div className="flex items-center gap-2 text-slate-300">
+                <span className="text-xs text-teal-400 font-semibold">Phone Call:</span>
+                <a
+                  href="tel:03142779877"
+                  className="hover:text-teal-300 transition-colors font-medium text-white"
+                >
                   03142779877
                 </a>
               </div>

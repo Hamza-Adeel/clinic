@@ -9,7 +9,7 @@ import { ConditionsSection } from "./components/ConditionsSection";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
 import { LegalModals } from "./components/LegalModals";
-import { StickyMobileBar } from "./components/StickyMobileBar";
+import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
 
 export default function Home() {
   const [privacyOpen, setPrivacyOpen] = useState(false);
@@ -28,7 +28,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col bg-white text-slate-900 pb-14 sm:pb-0">
+    <div className="relative min-h-screen flex flex-col bg-white text-slate-900">
       {/* Header */}
       <Navbar onOpenBooking={handleScrollToBooking} />
 
@@ -56,8 +56,8 @@ export default function Home() {
         onOpenDisclaimer={() => setDisclaimerOpen(true)}
       />
 
-      {/* Sticky Mobile Call & Book Bar */}
-      <StickyMobileBar onOpenBooking={handleScrollToBooking} />
+      {/* Floating WhatsApp Quick Action Button */}
+      <FloatingWhatsApp />
 
       {/* Modals for Privacy & Disclaimer */}
       <LegalModals

@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { Phone, Calendar, Menu, X } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
 
 interface NavbarProps {
-  onOpenBooking: () => void;
+  onOpenBooking?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
+export const Navbar: React.FC<NavbarProps> = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -20,7 +20,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
   return (
     <>
-
       {/* Main Header */}
       <header className="sticky top-0 z-40 bg-white border-b border-slate-200">
         <div className="clinic-container">
@@ -49,27 +48,30 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               ))}
             </nav>
 
-            {/* Header Right Action */}
-            <div className="hidden sm:flex items-center gap-3">
+            {/* Header Right Actions */}
+            <div className="hidden sm:flex items-center gap-2.5">
+
               <a
-                href="tel:03183130220"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 text-sm font-medium transition-colors">
-                <Phone className="w-4 h-4 text-teal-700" />
-                <span>Call 03183130220</span>
+                href="tel:03142779877"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-lg bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 text-xs font-semibold transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5 text-teal-700" />
+                <span>Call: 03142779877</span>
               </a>
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="flex md:hidden items-center gap-2">
-              <button
-                onClick={onOpenBooking}
-                className="px-3 py-1.5 rounded bg-[#0e2742] text-white text-xs font-medium"
+            {/* Mobile Menu & Quick Actions Button */}
+            <div className="flex sm:hidden items-center gap-2">
+              <a
+                href="tel:03142779877"
+                className="p-2 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 flex items-center justify-center"
+                aria-label="Call"
               >
-                Book
-              </button>
+                <Phone className="w-4 h-4 text-teal-700" />
+              </a>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-slate-700 hover:bg-slate-100 rounded focus:outline-none"
+                className="p-2 text-slate-700 hover:bg-slate-100 rounded-lg focus:outline-none"
                 aria-label="Toggle Navigation"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -87,29 +89,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-teal-700 rounded"
+                className="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-teal-700 rounded-lg"
               >
                 {link.name}
               </a>
             ))}
             <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
+
               <a
-                href="tel:03183130220"
-                className="flex items-center justify-center gap-2 py-2.5 bg-slate-100 text-slate-800 text-sm font-medium rounded"
+                href="tel:03142779877"
+                className="flex items-center justify-center gap-2 py-2.5 bg-slate-100 text-slate-800 border border-slate-200 text-sm font-semibold rounded-lg"
               >
                 <Phone className="w-4 h-4 text-teal-700" />
-                <span>Call 03183130220</span>
+                <span>Call: 03142779877</span>
               </a>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenBooking();
-                }}
-                className="flex items-center justify-center gap-2 py-2.5 bg-[#0e2742] text-white text-sm font-medium rounded"
-              >
-                <Calendar className="w-4 h-4 text-teal-300" />
-                <span>Book an Appointment</span>
-              </button>
             </div>
           </div>
         )}
@@ -117,3 +110,4 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
     </>
   );
 };
+
