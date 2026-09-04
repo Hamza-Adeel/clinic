@@ -9,21 +9,21 @@ interface StickyMobileBarProps {
 
 export const StickyMobileBar: React.FC<StickyMobileBarProps> = ({ onOpenBooking }) => {
   return (
-    <div className="fixed bottom-0 inset-x-0 z-40 sm:hidden bg-white/95 backdrop-blur-lg border-t border-slate-200/90 p-3 shadow-2xl safe-area-inset-bottom">
-      <div className="grid grid-cols-2 gap-2.5 max-w-md mx-auto">
+    <div className="fixed bottom-0 inset-x-0 z-40 sm:hidden bg-white border-t border-slate-200 p-2.5 shadow-lg">
+      <div className="grid grid-cols-2 gap-2">
         <a
           href="tel:03183130220"
-          className="flex items-center justify-center gap-2 py-3 px-3 rounded-xl bg-slate-900 text-white text-xs font-bold tracking-wide active:scale-95 transition-all shadow-xs"
+          className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded bg-slate-100 text-slate-800 text-xs font-semibold"
         >
-          <Phone className="w-4 h-4 text-teal-400" />
+          <Phone className="w-3.5 h-3.5 text-teal-700" />
           <span>Call Clinic</span>
         </a>
 
         <button
           onClick={onOpenBooking}
-          className="flex items-center justify-center gap-2 py-3 px-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold tracking-wide active:scale-95 transition-all shadow-md shadow-teal-700/20"
+          className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded bg-[#0e2742] text-white text-xs font-semibold"
         >
-          <Calendar className="w-4 h-4 text-teal-200" />
+          <Calendar className="w-3.5 h-3.5 text-teal-300" />
           <span>Book Visit</span>
         </button>
       </div>
